@@ -197,6 +197,7 @@ class Revision extends Eloquent
         if (empty($this->user_id)) { return false; }
         if (class_exists($class = '\Cartalyst\Sentry\Facades\Laravel\Sentry')
             || class_exists($class = '\Cartalyst\Sentinel\Laravel\Facades\Sentinel')
+            || class_exists($class = '\Astate\Shield\Laravel\Facades\Shield')
         ) {
             return $class::findUserById($this->user_id);
         } else {
